@@ -1,210 +1,273 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
+  <meta name="google" content="notranslate" />
+
+  <!-- Branding & Social -->
+  <title id="title">Bernoulli & Friends Co.</title>
+  <meta id="metaDesc" name="description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
+  <meta id="ogDesc" property="og:description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bernoulli & Friends Co.">
+  <meta property="og:title" content="Bernoulli & Friends Co." id="ogTitle">
+  <meta property="og:image" content="_img/6846e19e4f59e72be0ff2e1a_1024.webp" id="ogImage">
   <meta name="twitter:card" content="summary_large_image">
 
-        <meta id="metaDesc" name="description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
-        <meta id="ogDesc" name="og:description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
-        <meta property="og:title" content="Bernoulli & Friends Co." id="ogTitle">
-        <meta property="og:image" content="_img/6846e19e4f59e72be0ff2e1a_1024.webp" id="ogImage">
-        <meta name="keywords" content="meta keywords" id="metaKey">
+  <!-- Inline styles: minimal, high-contrast, TE-inspired -->
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#dfe6ee;
+      --muted:#a7b0bd;
+      --line:#1f242b;
+      --blue:#5aa7ff;
+      --card:#050607;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      font-weight:300;
+      letter-spacing:.01em;
+    }
 
-  <meta charset="utf-8">
-  <meta name="google" content="notranslate">
-  <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=4.0">
+    /* layout helpers */
+    .wrap{width:min(1200px,92%); margin:0 auto}
+    .section{padding:5.5rem 0 4rem}
+    .h1{font-weight:300; font-size:clamp(2rem, 1.2rem + 4vw, 4rem); margin:.25rem 0}
+    .h2{font-weight:300; font-size:1.6rem; text-transform:lowercase; margin:0 0 1rem}
+    .lead{text-align:center; margin:.75rem 0 2.25rem}
+    a{color:inherit}
+    .link{color:var(--blue); text-decoration:none}
+    .link:hover{text-decoration:underline}
 
-  <title id="title">Bernoulli & Friends Co.</title>
-  <style type="text/css">
+    /* top bar */
+    .bar{position:sticky; top:0; z-index:20; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
+    .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .brand{color:var(--fg); text-decoration:none; font-weight:300; text-transform:lowercase; font-size:1.25rem; opacity:.95}
+    .nav{display:flex; gap:1.2rem; align-items:center}
+    .nav a{display:flex; gap:.4rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.78}
+    .nav a:hover{opacity:1}
+    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
-    /* This CSS resource incorporates links to font software which is the valuable copyrighted property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact Monotype Imaging with any questions regarding Web Fonts:  http://webfonts.fonts.com */
-    @font-face{font-family:"Univers Next W02 Light";src:url("fonts/875712e3-9c93-4f0b-a46a-a278e69a71f6.woff") format("woff");}
-    @font-face{font-family:"UniversNW01-23 0BThin";src:url("fonts/a1c4330f-ba73-4f1f-aa05-bd237c58ba51.woff") format("woff");}
-     body{color:#000000;background-color:#ffffff;} 
+    /* hero */
+    .hero{padding:8rem 0 2rem; background:radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.16), transparent 60%)}
+    .eyebrow{color:var(--muted); margin:0 0 .5rem; text-align:center}
+    .display{text-align:center}
+    .hero-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; align-items:end}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; text-align:center}
+    .card img{display:block; width:100%; height:auto; filter:saturate(0) brightness(.9); transition:transform .4s ease, filter .4s ease}
+    .card:hover img{transform:translateY(-4px); filter:saturate(.2) brightness(1)}
+    .card figcaption{padding:.9rem 1rem; color:var(--muted); font-size:.95rem}
+
+    /* grids */
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem}
+    .tile{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#050607}
+    .tile img{display:block; width:100%; height:auto}
+    .tile-meta{display:flex; align-items:center; justify-content:space-between; padding:.9rem 1rem; border-top:1px solid var(--line); color:var(--muted)}
+
+    /* text blocks */
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
+    .two p{color:var(--muted); margin:.4rem 0 1rem}
+
+    /* lists */
+    .support-list{list-style:none; padding:0; margin:.5rem 0 0; display:flex; gap:2rem}
+
+    /* footer */
+    footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
+
+    /* responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr 1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .two{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .hero-grid,.grid{grid-template-columns:1fr}
+      .nav{display:none}
+    }
   </style>
-    <link href="te013-860e0c9a-b0a3-44e8-8d3f-cfc37112fceb.css" rel="stylesheet">
 </head>
-<body id="config" data-release="860e0c9a-b0a3-44e8-8d3f-cfc37112fceb" data-contentserver="">
-<noscript id="fallback">
-<table><tr><td valign="top"><h1><a href="/">Bernoulli & Friends Co.</a></h1></td><td valign="top"><ul><li><a href="/products">products</a></li><ul><li><a href="/products/od-11">wireless audio</a></li><li><a href="/products/synthesizers">synthesizers</a></li></ul></ul></td><td valign="top"><ul><li><a href="/store">store</a></li></ul></td><td valign="top"><ul><li><a href="/now">now</a></li><ul><li><a href="/now">projects</a></li></ul></ul></td><td valign="top"><ul><li><a href="/guides">guides</a></li><ul><li><a href="/contact">support</a></li><li><a href="/downloads/osupdates">downloads</a></li><li><a href="/contact">contact</a></li><li><a href="/press">press</a></li></ul></ul></td></tr></table>
-<a href="/products/field-system"><img src="/_img/6846e19e4f59e72be0ff2e1a_512.webp" width="512"/></a><br/>
-
-<a href="/products/field-system">/products/field-system</a><br/>
-<p>
-<h3>field system™ black.</h3>
-<a href="/products/field-system">explore</a><br/>
-</p>
-
-
-<a href="/store/tp-7-black"><img src="/_img/684689e25740f25d964ac614_512.webp" width="512"/></a><br/>
-
-
-<p>
-<small>TP–7</small><br/>
-<small><a href="/store/tp-7-black">visit store</a></small><br/>
-</p>
-
-<a href="/store/cm-15-black"><img src="/_img/684689d8c1cb085d958f5ab4_512.webp" width="512"/></a><br/>
-
-<p>
-<small>CM–15</small><br/>
-<small><a href="/store/cm-15-black">visit store</a></small><br/>
-</p>
-
-<a href="/store/tx-6-black"><img src="/_img/6847eb58a7def1116c498422_512.webp" width="512"/></a><br/>
-
-<p>
-<small>TX–6</small><br/>
-<small><a href="/store/tx-6-black">visit store</a></small><br/>
-</p>
-
-<a href="/products/op-1"><img src="/_img/68ac1fcef449cf1e57978e0b_512.webp" width="512"/></a><br/>
-
-
-<p>
-<h3>the beauty of evolution.</h3>
-<a href="/products/op-1">explore</a><br/>
-</p>
-
-
-
-<a href="/store/field-large-op-1-bag"><img src="/_img/643e828cb0aa844b700c2f35_512.webp" width="512"/></a><br/>
-
-
-<p>
-<small>field large bag </small><br/>
-<small><a href="/store/field-large-op-1-bag">visit store</a></small><br/>
-</p>
-
-<a href="/store/op-1-field-leather-wrap-white"><img src="/_img/68a843cf5c12d552394092b8_512.webp" width="512"/></a><br/>
-
-<p>
-<small>field leather wrap</small><br/>
-<small><a href="/store/op-1-field-leather-wrap-white">visit store</a></small><br/>
-</p>
-
-<a href="/products/po/anniversary"><img src="/_img/67b59216c2129e453cab342b_512.webp" width="512"/></a><br/>
-
-
-<p>
-<h3>ten years of pocket operator®</h3>
-<a href="/products/po/anniversary">explore</a><br/>
-</p>
-
-
-
-<a href="/store/po-12"><img src="/_img/66211a3cb7c4b559bf79bb36_512.webp" width="512"/></a><br/>
-
-
-<p>
-<small>PO-12</small><br/>
-<small><a href="/store/po-12">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-14"><img src="/_img/66211a52b7c4b559bf79bb50_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-14</small><br/>
-<small><a href="/store/po-14">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-16"><img src="/_img/66211a76b7c4b559bf79bbee_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-16</small><br/>
-<small><a href="/store/po-16">visit store</a></small><br/>
-</p>
-
-
-<a href="/store/po-20"><img src="/_img/66211a90b7c4b559bf79bc48_512.webp" width="512"/></a><br/>
-
-
-<p>
-<small>PO-20</small><br/>
-<small><a href="/store/po-20">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-24"><img src="/_img/66211ba4b7c4b559bf79c4ae_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-24</small><br/>
-<small><a href="/store/po-24">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-28"><img src="/_img/662122a2b7c4b559bf79e7c6_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-28</small><br/>
-<small><a href="/store/po-28">visit store</a></small><br/>
-</p>
-
-
-<a href="/store/po-32"><img src="/_img/66211adab7c4b559bf79bda4_512.webp" width="512"/></a><br/>
-
-
-<p>
-<small>PO-32</small><br/>
-<small><a href="/store/po-32">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-33"><img src="/_img/66211af6b7c4b559bf79be46_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-33</small><br/>
-<small><a href="/store/po-33">visit store</a></small><br/>
-</p>
-
-<a href="/store/po-35"><img src="/_img/66211b12b7c4b559bf79bef8_512.webp" width="512"/></a><br/>
-
-<p>
-<small>PO-35</small><br/>
-<small><a href="/store/po-35">visit store</a></small><br/>
-</p>
-
-<a href="/products">/products</a><br/>
-<p>
-<h3><a href="/products">explore all products</a></h3>
-</p>
-
-<a href="/products/field-system"><img src="/_img/681c583ad8c66509222acba5_512.webp" width="512"/></a><br/>
-
-
-<p>
-<h2>field system™ black</h2>
-</p>
-
-
-<a href="/products/field-system">/products/field-system</a><br/>
-
-
-<p>
-<h2>explore</h2>
-</p>
-
-
-<a href="/products/op-1"><img src="/_img/68a85fcc61a6c7641cde27e1_512.webp" width="512"/></a><br/>
-
-<p>
-OP–1 <br/>
-</p>
-
-
-<a href="/products/po/anniversary"><img src="/_img/67b59216c2129e453cab342b_512.webp" width="512"/></a><br/>
-
-<p>
-pocket operator®<br/>
-</p>
-
-
-<a href="/products">/products</a><br/>
-
-
-<p>
-<h2>explore all products</h2>
-</p>
-
-
-</noscript>
-<script type="module" src="te013-860e0c9a-b0a3-44e8-8d3f-cfc37112fceb.js"></script>
-
-
-</body></html>
+<body>
+
+  <!-- top bar -->
+  <header class="bar">
+    <div class="wrap inner">
+      <a class="brand" href="#home" aria-label="Bernoulli and Friends Co.">bernoulli & friends co.</a>
+      <nav class="nav" aria-label="primary">
+        <a href="#products" title="products">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          <span>products</span>
+        </a>
+        <a href="#store" title="store">
+          <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
+          <span>store</span>
+        </a>
+        <a href="#now" title="now">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          <span>now</span>
+        </a>
+        <a href="#support" title="support">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
+          <span>support</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- hero -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">2025 september</p>
+        <h1 class="h1 display">field system<span style="font-size:.6em;opacity:.6">™</span> black.</h1>
+        <p class="lead"><a class="link" href="#products">explore</a></p>
+
+        <div class="hero-grid" aria-label="featured products">
+          <figure class="card">
+            <img src="/_img/684689e25740f25d964ac614_512.webp" alt="TP–7 device" width="520" height="600" />
+            <figcaption>TP–7 • <a class="link" href="/store/tp-7-black">visit store</a></figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/_img/684689d8c1cb085d958f5ab4_512.webp" alt="CM–15 device" width="520" height="600" />
+            <figcaption>CM–15 • <a class="link" href="/store/cm-15-black">visit store</a></figcaption>
+          </figure>
+          <figure class="card">
+            <img src="/_img/6847eb58a7def1116c498422_512.webp" alt="TX–6 device" width="520" height="600" />
+            <figcaption>TX–6 • <a class="link" href="/store/tx-6-black">visit store</a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- products grid -->
+    <section id="products" class="wrap section">
+      <h2 class="h2">products</h2>
+
+      <div class="grid">
+        <article class="tile">
+          <img src="/_img/68ac1fcef449cf1e57978e0b_512.webp" alt="OP–1" loading="lazy" />
+          <div class="tile-meta">
+            <h3 class="h2" style="font-size:1.1rem; margin:0;">the beauty of evolution.</h3>
+            <a class="link" href="/products/op-1">explore</a>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="/_img/643e828cb0aa844b700c2f35_512.webp" alt="field large bag" loading="lazy" />
+          <div class="tile-meta">
+            <div>field large bag</div>
+            <a class="link" href="/store/field-large-op-1-bag">visit store</a>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img src="/_img/68a843cf5c12d552394092b8_512.webp" alt="field leather wrap" loading="lazy" />
+          <div class="tile-meta">
+            <div>field leather wrap</div>
+            <a class="link" href="/store/op-1-field-leather-wrap-white">visit store</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section" style="padding-top:2.5rem">
+        <h2 class="h2">ten years of pocket operator®</h2>
+        <p class="lead"><a class="link" href="/products/po/anniversary">explore</a></p>
+
+        <div class="grid">
+          <article class="tile">
+            <img src="/_img/66211a3cb7c4b559bf79bb36_512.webp" alt="PO-12" />
+            <div class="tile-meta"><div>PO-12</div><a class="link" href="/store/po-12">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211a52b7c4b559bf79bb50_512.webp" alt="PO-14" />
+            <div class="tile-meta"><div>PO-14</div><a class="link" href="/store/po-14">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211a76b7c4b559bf79bbee_512.webp" alt="PO-16" />
+            <div class="tile-meta"><div>PO-16</div><a class="link" href="/store/po-16">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211a90b7c4b559bf79bc48_512.webp" alt="PO-20" />
+            <div class="tile-meta"><div>PO-20</div><a class="link" href="/store/po-20">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211ba4b7c4b559bf79c4ae_512.webp" alt="PO-24" />
+            <div class="tile-meta"><div>PO-24</div><a class="link" href="/store/po-24">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/662122a2b7c4b559bf79e7c6_512.webp" alt="PO-28" />
+            <div class="tile-meta"><div>PO-28</div><a class="link" href="/store/po-28">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211adab7c4b559bf79bda4_512.webp" alt="PO-32" />
+            <div class="tile-meta"><div>PO-32</div><a class="link" href="/store/po-32">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211af6b7c4b559bf79be46_512.webp" alt="PO-33" />
+            <div class="tile-meta"><div>PO-33</div><a class="link" href="/store/po-33">visit store</a></div>
+          </article>
+          <article class="tile">
+            <img src="/_img/66211b12b7c4b559bf79bef8_512.webp" alt="PO-35" />
+            <div class="tile-meta"><div>PO-35</div><a class="link" href="/store/po-35">visit store</a></div>
+          </article>
+        </div>
+
+        <p class="lead" style="margin-top:2rem">
+          <a class="link" href="/products">explore all products</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- field system callout -->
+    <section class="wrap section" id="store">
+      <div class="grid">
+        <article class="tile">
+          <img src="/_img/681c583ad8c66509222acba5_512.webp" alt="field system black" />
+          <div class="tile-meta">
+            <h3 class="h2" style="font-size:1.1rem; margin:0;">field system™ black</h3>
+            <a class="link" href="/products/field-system">/products/field-system</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- now / support -->
+    <section id="now" class="wrap section two">
+      <div>
+        <h2 class="h2">now</h2>
+        <p>newsletter, instagram, blog — our latest experiments in sound, software and small tools.</p>
+        <p><a class="link" href="#">subscribe</a></p>
+      </div>
+      <div id="support">
+        <h2 class="h2">support</h2>
+        <ul class="support-list">
+          <li><a class="link" href="/guides">guides</a></li>
+          <li><a class="link" href="/downloads/osupdates">downloads</a></li>
+          <li><a class="link" href="/contact">support</a></li>
+          <li><a class="link" href="/press">press</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Bernoulli and Friends Co.
+    </div>
+  </footer>
+
+  <!-- Inline JS (no external bundles) -->
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
