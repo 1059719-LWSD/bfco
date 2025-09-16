@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=4.0, user-scalable=yes" />
   <meta name="google" content="notranslate" />
 
   <!-- Branding & Social -->
@@ -44,7 +44,6 @@
     /* layout helpers */
     .wrap{width:min(1200px,92%); margin:0 auto}
     .section{padding:5.5rem 0 4rem}
-    /* slightly smaller max heading so it stays clear of the cup */
     .h1{font-weight:300; font-size:clamp(1.8rem, 1.1rem + 3.6vw, 3.2rem); margin:.25rem 0}
     .h2{font-weight:300; font-size:1.6rem; text-transform:lowercase; margin:0 0 1rem}
     .lead{text-align:center; margin:.5rem 0 1.5rem}
@@ -52,14 +51,26 @@
     .link{color:var(--blue); text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    /* top bar */
+    /* top bar — unified across pages */
     .bar{position:sticky; top:0; z-index:20; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
     .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{color:var(--fg); text-decoration:none; font-weight:300; text-transform:lowercase; font-size:1.25rem; opacity:.95}
+    .brand{
+      color:var(--fg);
+      text-decoration:none;
+      font-weight:300;
+      text-transform:none; /* keep exact casing */
+      font-size:1.25rem;
+      opacity:.95;
+      white-space:nowrap;
+    }
     .nav{display:flex; gap:1.2rem; align-items:center}
-    .nav a{display:flex; gap:.4rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.78}
+    .nav a{
+      display:flex; gap:.4rem; align-items:center;
+      text-transform:lowercase; text-decoration:none; opacity:.78
+    }
     .nav a:hover{opacity:1}
     .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
+    .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
 
     /* hero (landing) */
     .hero{
@@ -94,44 +105,29 @@
       position:relative;
       z-index:1;
       padding-top:1.25rem;
-      margin-top:-9rem;  /* was none — pulls title + explore higher */
+      margin-top:-9rem;
     }
     .lead a{font-size:1rem}
 
-    /* cards (kept styles in case you re-add later) */
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; text-align:center}
-    .card img{display:block; width:100%; height:auto; filter:saturate(0) brightness(.9); transition:transform .4s ease, filter .4s ease}
-    .card:hover img{transform:translateY(-4px); filter:saturate(.2) brightness(1)}
-    .card figcaption{padding:.9rem 1rem; color:var(--muted); font-size:.95rem}
-
-    /* grids */
-    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem}
-    .tile{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#050607}
-    .tile img{display:block; width:100%; height:auto}
-    .tile-meta{display:flex; align-items:center; justify-content:space-between; padding:.9rem 1rem; border-top:1px solid var(--line); color:var(--muted)}
-
-    /* text blocks */
-    .two{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
-    .two p{color:var(--muted); margin:.4rem 0 1rem}
-
-    /* lists */
-    .support-list{list-style:none; padding:0; margin:.5rem 0 0; display:flex; gap:2rem}
+    /* simple iCup description (replaces grids) */
+    .icup{padding:3rem 0 4rem; border-top:1px solid var(--line)}
+    .icup .copy{max-width:820px; margin:0 auto; color:var(--muted); line-height:1.65}
+    .icup h2{font-weight:300; font-size:1.6rem; text-transform:lowercase; margin:0 0 1rem; color:var(--fg)}
+    .icup p{margin:.5rem 0 1rem}
 
     /* footer */
     footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
 
     /* responsive */
     @media (max-width: 980px){
-      .grid{grid-template-columns:1fr 1fr}
-      .two{grid-template-columns:1fr}
       .h1{font-size:clamp(1.8rem, 1.2rem + 3vw, 2.8rem)}
       .hero .wrap{margin-top:-7rem;}
     }
     @media (max-width: 640px){
-      .grid{grid-template-columns:1fr}
       .nav{display:none}
       .eyebrow{top:.6rem; right:.6rem; font-size:.85rem}
       .hero .wrap{margin-top:-5rem;}
+      .icup .copy{padding:0 .25rem}
     }
   </style>
 </head>
@@ -150,9 +146,9 @@
           <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
           <span>store</span>
         </a>
-        <a href="index.html#now" title="now">
+        <a href="index.html#press" title="press">
           <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-          <span>now</span>
+          <span>press</span>
         </a>
         <a class="active" href="aboutus.html" title="about us">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
@@ -168,117 +164,30 @@
       <p class="eyebrow">2025 september</p>
       <div class="wrap">
         <h1 class="h1 display">the og<span style="font-size:.6em;opacity:.6">™</span> icup.</h1>
-        <p class="lead"><a class="link" href="#products">explore</a></p>
+        <p class="lead"><a class="link" href="#icup">explore</a></p>
       </div>
     </section>
 
-    <!-- products grid -->
-    <section id="products" class="wrap section">
-      <h2 class="h2">products</h2>
-
-      <div class="grid">
-        <article class="tile">
-          <img src="/img/68ac1fcef449cf1e57978e0b_512.webp" alt="OP–1" loading="lazy" />
-          <div class="tile-meta">
-            <h3 class="h2" style="font-size:1.1rem; margin:0;">the beauty of evolution.</h3>
-            <a class="link" href="/products/op-1">explore</a>
-          </div>
-        </article>
-
-        <article class="tile">
-          <img src="/img/643e828cb0aa844b700c2f35_512.webp" alt="field large bag" loading="lazy" />
-          <div class="tile-meta">
-            <div>field large bag</div>
-            <a class="link" href="/store/field-large-op-1-bag">visit store</a>
-          </div>
-        </article>
-
-        <article class="tile">
-          <img src="/img/68a843cf5c12d552394092b8_512.webp" alt="field leather wrap" loading="lazy" />
-          <div class="tile-meta">
-            <div>field leather wrap</div>
-            <a class="link" href="/store/op-1-field-leather-wrap-white">visit store</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="section" style="padding-top:2.5rem">
-        <h2 class="h2">ten years of pocket operator®</h2>
-        <p class="lead"><a class="link" href="/products/po/anniversary">explore</a></p>
-
-        <div class="grid">
-          <article class="tile">
-            <img src="/img/66211a3cb7c4b559bf79bb36_512.webp" alt="PO-12" />
-            <div class="tile-meta"><div>PO-12</div><a class="link" href="/store/po-12">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211a52b7c4b559bf79bb50_512.webp" alt="PO-14" />
-            <div class="tile-meta"><div>PO-14</div><a class="link" href="/store/po-14">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211a76b7c4b559bf79bbee_512.webp" alt="PO-16" />
-            <div class="tile-meta"><div>PO-16</div><a class="link" href="/store/po-16">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211a90b7c4b559bf79bc48_512.webp" alt="PO-20" />
-            <div class="tile-meta"><div>PO-20</div><a class="link" href="/store/po-20">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211ba4b7c4b559bf79c4ae_512.webp" alt="PO-24" />
-            <div class="tile-meta"><div>PO-24</div><a class="link" href="/store/po-24">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/662122a2b7c4b559bf79e7c6_512.webp" alt="PO-28" />
-            <div class="tile-meta"><div>PO-28</div><a class="link" href="/store/po-28">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211adab7c4b559bf79bda4_512.webp" alt="PO-32" />
-            <div class="tile-meta"><div>PO-32</div><a class="link" href="/store/po-32">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211af6b7c4b559bf79be46_512.webp" alt="PO-33" />
-            <div class="tile-meta"><div>PO-33</div><a class="link" href="/store/po-33">visit store</a></div>
-          </article>
-          <article class="tile">
-            <img src="/img/66211b12b7c4b559bf79bef8_512.webp" alt="PO-35" />
-            <div class="tile-meta"><div>PO-35</div><a class="link" href="/store/po-35">visit store</a></div>
-          </article>
+    <!-- iCup description (replaces previous grids/tiles) -->
+    <section id="icup" class="icup">
+      <div class="wrap">
+        <h2>about the icup</h2>
+        <div class="copy">
+          <p>
+            The iCup isn’t here to impress your dinner guests. It’s here to quietly
+            outlast every mug, tumbler, or chipped souvenir you’ve ever owned.
+          </p>
+          <p>
+            Precision cut, obsessively finished, and stripped of anything that doesn’t
+            serve its purpose — it’s the kind of object you stop noticing because it
+            just works. Until, of course, someone else picks it up and asks why their
+            coffee tastes better in yours.
+          </p>
+          <p>
+            Built to be used, abused, and passed down. Coming soon in more finishes
+            and accessories you definitely don’t need, but will buy anyway.
+          </p>
         </div>
-
-        <p class="lead" style="margin-top:2rem">
-          <a class="link" href="/products">explore all products</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- field system callout -->
-    <section class="wrap section" id="store">
-      <div class="grid">
-        <article class="tile">
-          <img src="/img/681c583ad8c66509222acba5_512.webp" alt="field system black" />
-          <div class="tile-meta">
-            <h3 class="h2" style="font-size:1.1rem; margin:0;">field system™ black</h3>
-            <a class="link" href="/products/field-system">/products/field-system</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- now / support -->
-    <section id="now" class="wrap section two">
-      <div>
-        <h2 class="h2">now</h2>
-        <p>newsletter, instagram, blog — our latest experiments in sound, software and small tools.</p>
-        <p><a class="link" href="#">subscribe</a></p>
-      </div>
-      <div id="support">
-        <h2 class="h2">support</h2>
-        <ul class="support-list">
-          <li><a class="link" href="/guides">guides</a></li>
-          <li><a class="link" href="/downloads/osupdates">downloads</a></li>
-          <li><a class="link" href="/contact">support</a></li>
-          <li><a class="link" href="/press">press</a></li>
-        </ul>
       </div>
     </section>
   </main>
