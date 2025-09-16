@@ -12,12 +12,11 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bernoulli & Friends co.">
   <meta property="og:title" content="Bernoulli & Friends Co." id="ogTitle">
-  <!-- Use relative path so it works under repo subpath -->
   <meta property="og:image" content="./img/oghomeimage.webp" id="ogImage">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Preload hero image to ensure it appears -->
-  <link rel="preload" as="image" href="./img/oghomeimage.webp" imagesrcset="./img/oghomeimage.webp 1x, ./img/oghomeimage.webp 2x" />
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="./img/oghomeimage.webp" />
 
   <!-- Inline styles -->
   <style>
@@ -65,22 +64,12 @@
     .hero{
       position:relative;
       padding:8rem 0 2rem;
-      min-height:60vh; /* ensure image has space */
-      background-color:#000; /* fallback color */
-      /* RELATIVE PATH + fallback */
+      min-height:60vh;
+      background-color:#000;
       background-image: url("./img/oghomeimage.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
-    /* Optional JPEG fallback if you add ./img/oghomeimage.jpg */
-    @supports (background-image: image-set(url("") type("image/webp"))) {
-      .hero{
-        background-image: image-set(
-          url("./img/oghomeimage.webp") type("image/webp"),
-          url("./img/oghomeimage.jpg") type("image/jpeg")
-        );
-      }
     }
 
     .eyebrow{color:var(--muted); margin:0 0 .5rem; text-align:center}
@@ -149,8 +138,6 @@
   <main id="home">
     <!-- hero -->
     <section class="hero">
-      <!-- Hidden image to warm the cache and confirm path -->
-      <img src="./img/oghomeimage.webp" alt="" width="1" height="1" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" />
       <div class="wrap">
         <p class="eyebrow">2025 september</p>
         <h1 class="h1 display">the og<span style="font-size:.6em;opacity:.6">™</span> iCup.</h1>
@@ -290,9 +277,7 @@
     </div>
   </footer>
 
-  <!-- Inline JS (no external bundles) -->
   <script>
-    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
