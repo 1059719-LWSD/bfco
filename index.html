@@ -7,11 +7,11 @@
 
   <!-- Branding & Social -->
   <title id="title">Bernoulli & Friends Co.</title>
-  <meta id="metaDesc" name="description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
-  <meta id="ogDesc" property="og:description" content="Bernoulli and Friends Co. creates high quality, well designed, electronic products for all people who love sound and music.">
+  <meta id="metaDesc" name="description" content="bernoulli and friends co. creates high quality, well designed, products for all people who love minimalistic nature.">
+  <meta id="ogDesc" property="og:description" content="bernoulli and friends co. creates high quality, well designed, products for all people who love minimalistic nature.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Bernoulli & Friends Co.">
-  <meta property="og:title" content="Bernoulli & Friends Co." id="ogTitle">
+  <meta property="og:site_name" content="bernoulli & friends co.">
+  <meta property="og:title" content="bernoulli & friends co." id="ogTitle">
   <meta property="og:image" content="_img/6846e19e4f59e72be0ff2e1a_1024.webp" id="ogImage">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -58,7 +58,11 @@
     .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
     /* hero */
-    .hero{padding:8rem 0 2rem; background:radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.16), transparent 60%)}
+    .hero{
+      padding:8rem 0 2rem;
+      /* replaced gradient with image as requested */
+      background: url('oghomeimage.webp') center/cover no-repeat;
+    }
     .eyebrow{color:var(--muted); margin:0 0 .5rem; text-align:center}
     .display{text-align:center}
     .hero-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; align-items:end}
@@ -110,13 +114,13 @@
           <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
           <span>store</span>
         </a>
-        <a href="#now" title="now">
+        <a href="#press" title="now">
           <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
           <span>now</span>
         </a>
-        <a href="#support" title="support">
+        <a href="#about us" title="about us">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
-          <span>support</span>
+          <span>about us</span>
         </a>
       </nav>
     </div>
