@@ -44,7 +44,8 @@
     /* layout helpers */
     .wrap{width:min(1200px,92%); margin:0 auto}
     .section{padding:5.5rem 0 4rem}
-    .h1{font-weight:300; font-size:clamp(1.8rem, 1.1rem + 4vw, 3.6rem); margin:.25rem 0}
+    /* slightly smaller max heading so it stays clear of the cup */
+    .h1{font-weight:300; font-size:clamp(1.8rem, 1.1rem + 3.6vw, 3.2rem); margin:.25rem 0}
     .h2{font-weight:300; font-size:1.6rem; text-transform:lowercase; margin:0 0 1rem}
     .lead{text-align:center; margin:.5rem 0 1.5rem}
     a{color:inherit}
@@ -63,9 +64,8 @@
     /* hero (landing) */
     .hero{
       position:relative;
-      /* increase vertical padding and min-height */
-      padding:8rem 0 4rem;   /* was 5.25rem 0 2rem */
-      min-height:90vh;       /* was 70vh */
+      padding:8rem 0 4rem;
+      min-height:90vh;
       background-color:#000;
       background-image: url("./img/oghomeimage.webp");
       background-size: cover;
@@ -88,8 +88,14 @@
       text-align:right;
     }
     .display{text-align:center}
-    /* tuck title/explore a bit higher */
-    .hero .wrap{padding-top:1.25rem}
+
+    /* move hero text further up without touching the image */
+    .hero .wrap{
+      position:relative;
+      z-index:1;
+      padding-top:1.25rem;
+      margin-top:-9rem;  /* was none — pulls title + explore higher */
+    }
     .lead a{font-size:1rem}
 
     /* cards (kept styles in case you re-add later) */
@@ -118,12 +124,14 @@
     @media (max-width: 980px){
       .grid{grid-template-columns:1fr 1fr}
       .two{grid-template-columns:1fr}
-      .h1{font-size:clamp(1.8rem, 1.2rem + 3vw, 3rem)}
+      .h1{font-size:clamp(1.8rem, 1.2rem + 3vw, 2.8rem)}
+      .hero .wrap{margin-top:-7rem;}
     }
     @media (max-width: 640px){
       .grid{grid-template-columns:1fr}
       .nav{display:none}
       .eyebrow{top:.6rem; right:.6rem; font-size:.85rem}
+      .hero .wrap{margin-top:-5rem;}
     }
   </style>
 </head>
@@ -157,14 +165,10 @@
   <main id="home">
     <!-- hero -->
     <section class="hero">
-      <!-- date -> now top-right via CSS -->
       <p class="eyebrow">2025 september</p>
-
       <div class="wrap">
         <h1 class="h1 display">the og<span style="font-size:.6em;opacity:.6">™</span> iup.</h1>
         <p class="lead"><a class="link" href="#products">explore</a></p>
-
-        <!-- REMOVED the hero product grid per your request -->
       </div>
     </section>
 
