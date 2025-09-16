@@ -13,11 +13,11 @@
   <meta property="og:site_name" content="Bernoulli & Friends co.">
   <meta property="og:title" content="Bernoulli & Friends Co." id="ogTitle">
   <!-- Use relative path so it works under repo subpath -->
-  <meta property="og:image" content="./_img/oghomeimage.webp" id="ogImage">
+  <meta property="og:image" content="./img/oghomeimage.webp" id="ogImage">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Preload hero image to ensure it appears -->
-  <link rel="preload" as="image" href="./_img/oghomeimage.webp" imagesrcset="./_img/oghomeimage.webp 1x, ./_img/oghomeimage.webp 2x" />
+  <link rel="preload" as="image" href="./img/oghomeimage.webp" imagesrcset="./img/oghomeimage.webp 1x, ./img/oghomeimage.webp 2x" />
 
   <!-- Inline styles -->
   <style>
@@ -68,17 +68,17 @@
       min-height:60vh; /* ensure image has space */
       background-color:#000; /* fallback color */
       /* RELATIVE PATH + fallback */
-      background-image: url("./_img/oghomeimage.webp");
+      background-image: url("./img/oghomeimage.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-    /* Optional JPEG fallback if you add ./_img/oghomeimage.jpg */
+    /* Optional JPEG fallback if you add ./img/oghomeimage.jpg */
     @supports (background-image: image-set(url("") type("image/webp"))) {
       .hero{
         background-image: image-set(
-          url("./_img/oghomeimage.webp") type("image/webp"),
-          url("./_img/oghomeimage.jpg") type("image/jpeg")
+          url("./img/oghomeimage.webp") type("image/webp"),
+          url("./img/oghomeimage.jpg") type("image/jpeg")
         );
       }
     }
@@ -150,7 +150,7 @@
     <!-- hero -->
     <section class="hero">
       <!-- Hidden image to warm the cache and confirm path -->
-      <img src="./_img/oghomeimage.webp" alt="" width="1" height="1" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" />
+      <img src="./img/oghomeimage.webp" alt="" width="1" height="1" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" />
       <div class="wrap">
         <p class="eyebrow">2025 september</p>
         <h1 class="h1 display">the og<span style="font-size:.6em;opacity:.6">™</span> iCup.</h1>
@@ -158,15 +158,15 @@
 
         <div class="hero-grid" aria-label="featured products">
           <figure class="card">
-            <img src="/_img/684689e25740f25d964ac614_512.webp" alt="TP–7 device" width="520" height="600" />
+            <img src="/img/684689e25740f25d964ac614_512.webp" alt="TP–7 device" width="520" height="600" />
             <figcaption>TP–7 • <a class="link" href="/store/tp-7-black">visit store</a></figcaption>
           </figure>
           <figure class="card">
-            <img src="/_img/684689d8c1cb085d958f5ab4_512.webp" alt="CM–15 device" width="520" height="600" />
+            <img src="/img/684689d8c1cb085d958f5ab4_512.webp" alt="CM–15 device" width="520" height="600" />
             <figcaption>CM–15 • <a class="link" href="/store/cm-15-black">visit store</a></figcaption>
           </figure>
           <figure class="card">
-            <img src="/_img/6847eb58a7def1116c498422_512.webp" alt="TX–6 device" width="520" height="600" />
+            <img src="/img/6847eb58a7def1116c498422_512.webp" alt="TX–6 device" width="520" height="600" />
             <figcaption>TX–6 • <a class="link" href="/store/tx-6-black">visit store</a></figcaption>
           </figure>
         </div>
@@ -179,7 +179,7 @@
 
       <div class="grid">
         <article class="tile">
-          <img src="/_img/68ac1fcef449cf1e57978e0b_512.webp" alt="OP–1" loading="lazy" />
+          <img src="/img/68ac1fcef449cf1e57978e0b_512.webp" alt="OP–1" loading="lazy" />
           <div class="tile-meta">
             <h3 class="h2" style="font-size:1.1rem; margin:0;">the beauty of evolution.</h3>
             <a class="link" href="/products/op-1">explore</a>
@@ -187,7 +187,7 @@
         </article>
 
         <article class="tile">
-          <img src="/_img/643e828cb0aa844b700c2f35_512.webp" alt="field large bag" loading="lazy" />
+          <img src="/img/643e828cb0aa844b700c2f35_512.webp" alt="field large bag" loading="lazy" />
           <div class="tile-meta">
             <div>field large bag</div>
             <a class="link" href="/store/field-large-op-1-bag">visit store</a>
@@ -195,7 +195,7 @@
         </article>
 
         <article class="tile">
-          <img src="/_img/68a843cf5c12d552394092b8_512.webp" alt="field leather wrap" loading="lazy" />
+          <img src="/img/68a843cf5c12d552394092b8_512.webp" alt="field leather wrap" loading="lazy" />
           <div class="tile-meta">
             <div>field leather wrap</div>
             <a class="link" href="/store/op-1-field-leather-wrap-white">visit store</a>
@@ -209,39 +209,39 @@
 
         <div class="grid">
           <article class="tile">
-            <img src="/_img/66211a3cb7c4b559bf79bb36_512.webp" alt="PO-12" />
+            <img src="/img/66211a3cb7c4b559bf79bb36_512.webp" alt="PO-12" />
             <div class="tile-meta"><div>PO-12</div><a class="link" href="/store/po-12">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211a52b7c4b559bf79bb50_512.webp" alt="PO-14" />
+            <img src="/img/66211a52b7c4b559bf79bb50_512.webp" alt="PO-14" />
             <div class="tile-meta"><div>PO-14</div><a class="link" href="/store/po-14">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211a76b7c4b559bf79bbee_512.webp" alt="PO-16" />
+            <img src="/img/66211a76b7c4b559bf79bbee_512.webp" alt="PO-16" />
             <div class="tile-meta"><div>PO-16</div><a class="link" href="/store/po-16">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211a90b7c4b559bf79bc48_512.webp" alt="PO-20" />
+            <img src="/img/66211a90b7c4b559bf79bc48_512.webp" alt="PO-20" />
             <div class="tile-meta"><div>PO-20</div><a class="link" href="/store/po-20">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211ba4b7c4b559bf79c4ae_512.webp" alt="PO-24" />
+            <img src="/img/66211ba4b7c4b559bf79c4ae_512.webp" alt="PO-24" />
             <div class="tile-meta"><div>PO-24</div><a class="link" href="/store/po-24">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/662122a2b7c4b559bf79e7c6_512.webp" alt="PO-28" />
+            <img src="/img/662122a2b7c4b559bf79e7c6_512.webp" alt="PO-28" />
             <div class="tile-meta"><div>PO-28</div><a class="link" href="/store/po-28">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211adab7c4b559bf79bda4_512.webp" alt="PO-32" />
+            <img src="/img/66211adab7c4b559bf79bda4_512.webp" alt="PO-32" />
             <div class="tile-meta"><div>PO-32</div><a class="link" href="/store/po-32">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211af6b7c4b559bf79be46_512.webp" alt="PO-33" />
+            <img src="/img/66211af6b7c4b559bf79be46_512.webp" alt="PO-33" />
             <div class="tile-meta"><div>PO-33</div><a class="link" href="/store/po-33">visit store</a></div>
           </article>
           <article class="tile">
-            <img src="/_img/66211b12b7c4b559bf79bef8_512.webp" alt="PO-35" />
+            <img src="/img/66211b12b7c4b559bf79bef8_512.webp" alt="PO-35" />
             <div class="tile-meta"><div>PO-35</div><a class="link" href="/store/po-35">visit store</a></div>
           </article>
         </div>
@@ -256,7 +256,7 @@
     <section class="wrap section" id="store">
       <div class="grid">
         <article class="tile">
-          <img src="/_img/681c583ad8c66509222acba5_512.webp" alt="field system black" />
+          <img src="/img/681c583ad8c66509222acba5_512.webp" alt="field system black" />
           <div class="tile-meta">
             <h3 class="h2" style="font-size:1.1rem; margin:0;">field system™ black</h3>
             <a class="link" href="/products/field-system">/products/field-system</a>
