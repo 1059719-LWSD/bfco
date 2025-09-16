@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
+  <meta name="google" content="notranslate" />
+
+  <title>About Us — Bernoulli and Friends Co.</title>
+  <meta name="description" content="Learn about Bernoulli and Friends Co. — our mission, principles, and the small team building minimal, well-designed tools." />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Us — Bernoulli & Friends Co.">
+  <meta property="og:site_name" content="Bernoulli & Friends Co.">
+  <meta property="og:description" content="Our mission, design principles and team at Bernoulli and Friends Co.">
+  <meta property="og:image" content="./img/oghomeimage.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" as="image" href="./img/oghomeimage.webp" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#dfe6ee;
+      --muted:#a7b0bd;
+      --line:#1f242b;
+      --blue:#5aa7ff;
+      --card:#050607;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      font-weight:300;
+      letter-spacing:.01em;
+    }
+
+    /* layout */
+    .wrap{width:min(1100px,92%); margin:0 auto}
+    .section{padding:4.5rem 0}
+    .h1{font-weight:300; font-size:clamp(2rem, 1rem + 4vw, 3.2rem); margin:.25rem 0}
+    .h2{font-weight:300; font-size:1.65rem; text-transform:lowercase; margin:0 0 .75rem}
+    .h3{font-weight:400; font-size:1.1rem; margin:.25rem 0}
+    .lead{color:var(--muted); margin:.6rem 0 1.5rem}
+    a{color:inherit}
+    .link{color:var(--blue); text-decoration:none}
+    .link:hover{text-decoration:underline}
+
+    /* top bar */
+    .bar{position:sticky; top:0; z-index:30; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
+    .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .brand{color:var(--fg); text-decoration:none; font-weight:300; text-transform:lowercase; font-size:1.25rem; opacity:.95}
+    .nav{display:flex; gap:1.2rem; align-items:center}
+    .nav a{display:flex; gap:.4rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.78}
+    .nav a:hover{opacity:1}
+    .nav svg{width:22px; height:22px; stroke:var(--fg); fill:none; stroke-width:1.25}
+    .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
+
+    /* hero */
+    .hero{
+      position:relative;
+      padding:7.5rem 0 5rem;
+      min-height:58vh;
+      background: radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.08), transparent 60%), url("./img/oghomeimage.webp") center/cover no-repeat;
+    }
+    .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%);}
+    .hero .content{position:relative; z-index:1; text-align:center}
+    .breadcrumbs{color:var(--muted); font-size:.95rem; margin-bottom:.4rem}
+    .breadcrumbs a{color:var(--muted)}
+    .breadcrumbs a:hover{color:var(--fg)}
+
+    /* cards + grids */
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem}
+    .grid.two{grid-template-columns:1fr 1fr}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem}
+    .stack{display:flex; flex-direction:column; gap:.6rem}
+    .pill{display:inline-flex; align-items:center; gap:.4rem; border:1px solid var(--line); border-radius:999px; padding:.25rem .6rem; color:var(--muted); font-size:.9rem}
+
+    /* team */
+    .team{display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem}
+    .person{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1rem; text-align:center}
+    .avatar{width:84px; height:84px; border-radius:50%; margin:0 auto .7rem; display:grid; place-items:center; background:#0b0d10; border:1px solid var(--line); color:var(--muted); font-weight:500}
+    .role{color:var(--muted); font-size:.95rem}
+
+    /* timeline */
+    .timeline{display:grid; gap:1rem; border-left:1px solid var(--line); padding-left:1rem}
+    .event{position:relative}
+    .event::before{content:""; position:absolute; left:-1.55rem; top:.35rem; width:.6rem; height:.6rem; border-radius:50%; background:var(--blue); box-shadow:0 0 0 4px rgba(90,167,255,.12)}
+
+    /* footer */
+    footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
+
+    /* responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr 1fr}
+      .grid.two{grid-template-columns:1fr}
+      .team{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      .nav{display:none}
+      .team{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- top bar -->
+  <header class="bar">
+    <div class="wrap inner">
+      <a class="brand" href="index.html#home" aria-label="Bernoulli and Friends Co.">bernoulli & friends co.</a>
+      <nav class="nav" aria-label="primary">
+        <a href="index.html#products" title="products">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          <span>products</span>
+        </a>
+        <a href="index.html#store" title="store">
+          <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
+          <span>store</span>
+        </a>
+        <a href="index.html#now" title="now">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          <span>now</span>
+        </a>
+        <a class="active" href="aboutus.html" title="about us">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
+          <span>about us</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="veil"></div>
+    <div class="wrap content">
+      <div class="breadcrumbs">
+        <a href="index.html#home">home</a> · about us
+      </div>
+      <h1 class="h1">we design quietly.</h1>
+      <p class="lead">bernoulli & friends co. is a small studio focused on minimal, well-made products. we believe in clarity, longevity and tools that invite curiosity.</p>
+      <span class="pill">est. 2025</span>
+    </div>
+  </section>
+
+  <!-- mission & principles -->
+  <section class="wrap section">
+    <div class="grid two">
+      <div class="card">
+        <h2 class="h2">mission</h2>
+        <p class="lead">build simple instruments for everyday use — objects that feel inevitable, work reliably, and age gracefully.</p>
+        <div class="stack">
+          <div>• fewer features, better defaults</div>
+          <div>• considerate materials & repairability</div>
+          <div>• software that stays fast and kind</div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="h2">principles</h2>
+        <div class="stack">
+          <div class="h3">01 — clarity</div>
+          <p class="lead">interfaces should explain themselves. the best manual is none at all.</p>
+          <div class="h3">02 — calm</div>
+          <p class="lead">color, motion and sound are used sparingly to reduce noise.</p>
+          <div class="h3">03 — continuity</div>
+          <p class="lead">our products are designed to last. we value stability over trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- team -->
+  <section class="wrap section">
+    <h2 class="h2">team</h2>
+    <p class="lead">a few friends with overlapping fascinations in audio, embedded systems and small tools.</p>
+    <div class="team">
+      <div class="person">
+        <div class="avatar">AM</div>
+        <div class="h3">amogh</div>
+        <div class="role">founder / systems</div>
+      </div>
+      <div class="person">
+        <div class="avatar">DL</div>
+        <div class="h3">d. lee</div>
+        <div class="role">industrial design</div>
+      </div>
+      <div class="person">
+        <div class="avatar">RS</div>
+        <div class="h3">r. singh</div>
+        <div class="role">firmware</div>
+      </div>
+      <div class="person">
+        <div class="avatar">MK</div>
+        <div class="h3">m. kim</div>
+        <div class="role">software / web</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- timeline -->
+  <section class="wrap section">
+    <h2 class="h2">timeline</h2>
+    <div class="timeline">
+      <div class="event">
+        <div class="h3">2025 — the studio</div>
+        <p class="lead">we incorporated and started prototyping small audio tools.</p>
+      </div>
+      <div class="event">
+        <div class="h3">2025 fall — the og™ icup</div>
+        <p class="lead">a playful exploration in warmth, tactility and ritual.</p>
+      </div>
+      <div class="event">
+        <div class="h3">2026 — more field experiments</div>
+        <p class="lead">opening up our process with guides, firmware and mini-kits.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact / faq -->
+  <section class="wrap section">
+    <div class="grid two">
+      <div class="card">
+        <h2 class="h2">contact</h2>
+        <p class="lead">questions, press or collaborations — we’d love to hear from you.</p>
+        <p>Email: <a class="link" href="mailto:hello@bernoulli.friends">hello@bernoulli.friends</a></p>
+        <p>Instagram: <a class="link" href="#" rel="nofollow">coming soon</a></p>
+      </div>
+      <div class="card">
+        <h2 class="h2">faq</h2>
+        <div class="stack">
+          <div class="h3">shipping & returns</div>
+          <p class="lead">we ship globally from a few hubs. returns are accepted within 30 days in original condition.</p>
+          <div class="h3">repairs</div>
+          <p class="lead">many parts are user-serviceable. we publish guides and spare parts where possible.</p>
+          <div class="h3">open resources</div>
+          <p class="lead">we share small tools and docs on our <a class="link" href="index.html#now">now</a> page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Bernoulli and Friends Co.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
