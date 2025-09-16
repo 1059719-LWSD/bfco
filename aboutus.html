@@ -48,43 +48,68 @@
     .link{color:var(--blue); text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    /* top bar */
-    .bar{position:sticky; top:0; z-index:30; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
+    /* top bar (identical to index) */
+    .bar{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
     .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{color:var(--fg); text-decoration:none; font-weight:300; text-transform:lowercase; font-size:1.25rem; opacity:.95}
+    .brand{color:var(--fg); text-decoration:none; font-weight:300; font-size:1.08rem; letter-spacing:.02em}
     .nav{display:flex; gap:1.2rem; align-items:center}
-    .nav a{display:flex; gap:.4rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.78}
+    .nav a{display:flex; gap:.45rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.82; padding:.15rem 0}
     .nav a:hover{opacity:1}
-    .nav svg{width:22px; height:22px; stroke:var(--fg); fill:none; stroke-width:1.25}
     .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
+    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
     /* hero */
     .hero{
       position:relative;
       padding:7.5rem 0 5rem;
       min-height:58vh;
-      background: radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.08), transparent 60%), url("./img/ogaboutusimage.webp") center/cover no-repeat;
+      background:
+        radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.08), transparent 60%),
+        url("./img/ogaboutusimage.webp") center/cover no-repeat;
     }
-    .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%);}
+    .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%);}
     .hero .content{position:relative; z-index:1; text-align:center}
     .breadcrumbs{color:var(--muted); font-size:.95rem; margin-bottom:.4rem}
     .breadcrumbs a{color:var(--muted)}
     .breadcrumbs a:hover{color:var(--fg)}
     .pill{display:inline-flex; align-items:center; gap:.4rem; border:1px solid var(--line); border-radius:999px; padding:.25rem .6rem; color:var(--muted); font-size:.9rem}
 
-    /* cards + grids */
-    .grid.two{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem}
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem}
-    .stack{display:flex; flex-direction:column; gap:.6rem}
+    /* varied layout */
+    .band{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1.25rem 1.25rem 1.05rem;
+    }
+    .band h2{margin-bottom:.4rem}
+    .band .lead{margin-top:.35rem}
+
+    .principles{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; margin-top:1.2rem}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1.15rem}
+    .card .kicker{font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem}
+    .card .h3{margin-bottom:.25rem}
+
+    .callout{
+      margin-top:2.2rem;
+      border:1px dashed var(--line);
+      border-radius:var(--radius);
+      padding:1rem 1.2rem;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .grid-two{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem}
 
     /* footer */
     footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
 
     @media (max-width:980px){
-      .grid.two{grid-template-columns:1fr}
+      .principles{grid-template-columns:1fr 1fr}
+      .grid-two{grid-template-columns:1fr}
     }
     @media (max-width:640px){
       .nav{display:none}
+      .principles{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -124,38 +149,44 @@
       </div>
       <h1 class="h1">we design quietly.</h1>
       <p class="lead">Bernoulli and Friends Co. is a small studio based in Sandwich, Massachusetts. We believe in instruments that keep quality, functionality, and minimal as a focus.</p>
+      <span class="pill">est. 2025</span>
     </div>
   </section>
 
-  <!-- mission & principles -->
+  <!-- mission (single band) -->
   <section class="wrap section">
-    <div class="grid two">
-      <div class="card">
-        <h2 class="h2">mission</h2>
-        <p class="lead">build simple instruments for everyday use — objects that feel inevitable, work reliably, and age gracefully.</p>
-        <div class="stack">
-          <div>• fewer features, better defaults</div>
-          <div>• considerate & high quality materials </div>
-          <div>• razor-sharp precision with every build</div>
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="h2">principles</h2>
-        <div class="stack">
-          <div class="h3">01 — clarity</div>
-          <p class="lead">items should explain themselves. the best manual is none at all.</p>
-          <div class="h3">02 — calm</div>
-          <p class="lead">color and feel and sound are emphasized sparingly for a tranquil experience.</p>
-          <div class="h3">03 — continuity</div>
-          <p class="lead">our products are designed to last.</p>
-        </div>
-      </div>
+    <div class="band">
+      <h2 class="h2">mission</h2>
+      <p class="lead">build simple instruments for everyday use — objects that feel inevitable, work reliably, and age gracefully.</p>
+    </div>
+
+    <!-- principles (3 cards) -->
+    <div class="principles">
+      <article class="card">
+        <div class="kicker">01</div>
+        <h3 class="h3">clarity</h3>
+        <p class="lead">items should explain themselves. the best manual is none at all.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">02</div>
+        <h3 class="h3">calm</h3>
+        <p class="lead">color, motion and sound are used sparingly to reduce noise.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">03</div>
+        <h3 class="h3">continuity</h3>
+        <p class="lead">our products are designed to last. we value stability over trends.</p>
+      </article>
+    </div>
+
+    <div class="callout">
+      We publish repair guides and small tools as they’re ready. Transparency beats hype.
     </div>
   </section>
 
-  <!-- contact / faq -->
+  <!-- contact / faq (split) -->
   <section class="wrap section">
-    <div class="grid two">
+    <div class="grid-two">
       <div class="card">
         <h2 class="h2">contact</h2>
         <p class="lead">questions, press or collaborations — we’d love to hear from you.</p>
@@ -169,7 +200,7 @@
           <div class="h3">returns</div>
           <p class="lead">returns are accepted within 30 days in original condition.</p>
           <div class="h3">support</div>
-          <p class="lead">shoot us an email at <a class="link" href="mailto:support@bernoulli.friends">support@bernoulli.friends</a> </p>
+          <p class="lead">shoot us an email at <a class="link" href="mailto:support@bernoulli.friends">support@bernoulli.friends</a></p>
         </div>
       </div>
     </div>

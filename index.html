@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=4.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
   <meta name="google" content="notranslate" />
 
   <!-- Branding & Social -->
@@ -28,6 +28,7 @@
       --blue:#5aa7ff;
       --card:#050607;
       --radius:14px;
+      --veil: rgba(0,0,0,.55);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -51,26 +52,15 @@
     .link{color:var(--blue); text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    /* top bar — unified across pages */
-    .bar{position:sticky; top:0; z-index:20; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
+    /* top bar (shared across pages) */
+    .bar{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
     .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{
-      color:var(--fg);
-      text-decoration:none;
-      font-weight:300;
-      text-transform:none; /* keep exact casing */
-      font-size:1.25rem;
-      opacity:.95;
-      white-space:nowrap;
-    }
+    .brand{color:var(--fg); text-decoration:none; font-weight:300; font-size:1.08rem; letter-spacing:.02em}
     .nav{display:flex; gap:1.2rem; align-items:center}
-    .nav a{
-      display:flex; gap:.4rem; align-items:center;
-      text-transform:lowercase; text-decoration:none; opacity:.78
-    }
+    .nav a{display:flex; gap:.45rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.82; padding:.15rem 0}
     .nav a:hover{opacity:1}
-    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
     .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
+    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
     /* hero (landing) */
     .hero{
@@ -106,14 +96,29 @@
       z-index:1;
       padding-top:1.25rem;
       margin-top:-9rem;
+      text-align:center;
     }
     .lead a{font-size:1rem}
 
-    /* simple iCup description (replaces grids) */
-    .icup{padding:3rem 0 4rem; border-top:1px solid var(--line)}
-    .icup .copy{max-width:820px; margin:0 auto; color:var(--muted); line-height:1.65}
-    .icup h2{font-weight:300; font-size:1.6rem; text-transform:lowercase; margin:0 0 1rem; color:var(--fg)}
-    .icup p{margin:.5rem 0 1rem}
+    /* iCup teaser */
+    .icup{padding:4.5rem 0 4rem; text-align:center; background:var(--bg)}
+    .icup h2{font-weight:300; font-size:1.8rem; margin-bottom:1.5rem; color:var(--fg)}
+    .icup .copy{max-width:680px; margin:0 auto; font-size:1.05rem; line-height:1.6; color:var(--muted)}
+    .icup .copy p{margin:0 0 1.3rem}
+    /* subtle divider */
+    .icup .wrap{position:relative}
+    .icup .wrap::before,
+    .icup .wrap::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(640px,88%);
+      height:1px;
+      background:linear-gradient(90deg, transparent 0%, var(--line) 15%, var(--line) 85%, transparent 100%);
+    }
+    .icup .wrap::before{top:-1.8rem}
+    .icup .wrap::after{bottom:-1.8rem}
 
     /* footer */
     footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
@@ -127,7 +132,6 @@
       .nav{display:none}
       .eyebrow{top:.6rem; right:.6rem; font-size:.85rem}
       .hero .wrap{margin-top:-5rem;}
-      .icup .copy{padding:0 .25rem}
     }
   </style>
 </head>
@@ -146,11 +150,11 @@
           <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
           <span>store</span>
         </a>
-        <a href="index.html#press" title="press">
+        <a href="index.html#now" title="now">
           <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-          <span>press</span>
+          <span>now</span>
         </a>
-        <a class="active" href="aboutus.html" title="about us">
+        <a href="aboutus.html" title="about us">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
           <span>about us</span>
         </a>
@@ -168,15 +172,14 @@
       </div>
     </section>
 
-    <!-- iCup teaser (main page) -->
-    <section id="icup" class="icup icup-teaser">
+    <!-- iCup teaser (replaces old product grids) -->
+    <section id="icup" class="icup">
       <div class="wrap">
-        <h2>Yes, that's what we named it.</h2>
+        <h2>the icup</h2>
         <div class="copy">
           <p>
-            Minimal, balanced, and unapologetically simple. The icup makes every sip
-            feel deliberate — no gimmicks, no wasted details. Just a quiet object
-            that refuses to age badly.
+            Minimal, balanced, and unapologetically simple. The iCup makes every sip feel deliberate —
+            no gimmicks, no wasted details. Just a quiet object that refuses to age badly.
           </p>
         </div>
       </div>
