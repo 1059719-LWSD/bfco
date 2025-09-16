@@ -2,146 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=4.0, user-scalable=yes" />
   <meta name="google" content="notranslate" />
-
-  <!-- Branding & Social -->
-  <title id="title">Bernoulli and Friends Co.</title>
-  <meta id="metaDesc" name="description" content="Bernoulli and Friends Co. creates high quality, well designed, products for all people who love minimalistic nature.">
-  <meta id="ogDesc" property="og:description" content="Bernoulli and Friends Co. creates high quality, well designed, products for all people who love minimalistic nature.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Bernoulli and Friends Co.">
-  <meta property="og:title" content="Bernoulli and Friends Co." id="ogTitle">
-  <meta property="og:image" content="./img/oghomeimage.webp" id="ogImage">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Preload hero -->
+  <title>Bernoulli and Friends Co.</title>
+  <meta name="description" content="Bernoulli and Friends Co. creates high quality, well designed products for minimalistic living." />
+  <meta property="og:image" content="./img/oghomeimage.webp" />
   <link rel="preload" as="image" href="./img/oghomeimage.webp" />
-
-  <style>
-    :root{
-      --bg:#000; --fg:#dfe6ee; --muted:#a7b0bd; --line:#1f242b; --blue:#5aa7ff;
-      --card:#050607; --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font-family: system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      font-weight:300; letter-spacing:.01em;
-    }
-
-    /* layout */
-    .wrap{width:min(1200px,92%); margin:0 auto}
-    .section{padding:5.5rem 0 4rem}
-    .h1{font-weight:300; font-size:clamp(1.8rem,1.1rem + 3.6vw,3.2rem); margin:.25rem 0}
-    .lead{text-align:center; margin:.5rem 0 1.5rem}
-    a{color:inherit}
-    .link{color:var(--blue); text-decoration:none}
-    .link:hover{text-decoration:underline}
-
-    /* shared top bar */
-    .bar{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.74);
-         backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
-    .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{color:var(--fg); text-decoration:none; font-weight:400; letter-spacing:.02em; font-size:1.08rem}
-    .nav{display:flex; gap:1.2rem; align-items:center}
-    .nav a{display:flex; gap:.45rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.82; padding:.15rem 0}
-    .nav a:hover{opacity:1}
-    .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
-    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
-
-    /* hero */
-    .hero{
-      position:relative; min-height:90vh; padding:8rem 0 4rem;
-      background: #000 url("./img/oghomeimage.webp") center/cover no-repeat;
-    }
-    .eyebrow{
-      position:absolute; top:.85rem; right:1rem; color:var(--muted); font-size:.95rem;
-      padding:.25rem .6rem; border:1px solid var(--line); border-radius:999px;
-      background:rgba(0,0,0,.5); backdrop-filter:saturate(120%) blur(3px); margin:0;
-    }
-    .display{text-align:center}
-    .hero .wrap{position:relative; z-index:1; padding-top:1.25rem; margin-top:-9rem; text-align:center}
-    .lead a{font-size:1rem}
-
-    /* iCup small description (centered) */
-    .icup{padding:4.5rem 0 4rem; text-align:center; background:var(--bg)}
-    .icup h2{font-weight:300; font-size:1.8rem; margin-bottom:1.5rem; color:var(--fg)}
-    .icup .copy{max-width:680px; margin:0 auto; font-size:1.05rem; line-height:1.6; color:var(--muted)}
-    .icup .copy p{margin:0 0 1.35rem}
-    .icup .wrap{position:relative}
-    .icup .wrap::before,.icup .wrap::after{
-      content:""; position:absolute; left:50%; transform:translateX(-50%);
-      width:min(640px,88%); height:1px;
-      background:linear-gradient(90deg,transparent 0%,var(--line) 15%,var(--line) 85%,transparent 100%);
-    }
-    .icup .wrap::before{top:-1.8rem} .icup .wrap::after{bottom:-1.8rem}
-
-    /* full-width CTA */
-    .cta-full{margin-top:1.5rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#0b0d10}
-    .cta-full a{display:block; width:100%; text-align:center; padding:3.5rem 1rem;
-      text-decoration:none; color:var(--fg); font-weight:300;
-      font-size:clamp(1.8rem,1rem + 3vw,3rem); letter-spacing:.02em}
-    .cta-full a:hover{background:#0e1116}
-
-    /* footer */
-    footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
-
-    /* responsive */
-    @media (max-width:980px){
-      .h1{font-size:clamp(1.8rem,1.2rem + 3vw,2.8rem)}
-      .hero .wrap{margin-top:-7rem}
-    }
-    @media (max-width:640px){
-      .nav{display:none}
-      .eyebrow{top:.6rem; right:.6rem; font-size:.85rem}
-      .hero .wrap{margin-top:-5rem}
-    }
-  </style>
+  <link rel="stylesheet" href="site.css" />
 </head>
 <body>
-
   <header class="bar">
     <div class="wrap inner">
-      <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
+      <a class="brand" href="index.html">Bernoulli and Friends Co.</a>
       <nav class="nav" aria-label="primary">
-        <a href="index.html#products" title="products">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>products</span>
-        </a>
-        <a href="index.html#store" title="store">
-          <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg><span>store</span>
-        </a>
-        <a href="index.html#now" title="now">
-          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>now</span>
-        </a>
-        <a href="aboutus.html" title="about us" class="">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg><span>about us</span>
-        </a>
+        <a href="products.html" title="products">products</a>
+        <a href="store.html" title="store">store</a>
+        <a href="press.html" title="press">press</a>
+        <a href="aboutus.html" title="about us">about us</a>
       </nav>
     </div>
   </header>
 
   <main id="home">
-    <section class="hero">
+    <section class="hero" style="background-image:url('./img/oghomeimage.webp')">
       <p class="eyebrow">2025 september</p>
       <div class="wrap">
         <h1 class="h1 display">the og<span style="font-size:.6em;opacity:.6">™</span> icup.</h1>
-        <p class="lead"><a class="link" href="#icup">explore</a></p>
+        <p class="lead"><a class="link" href="icup.html">explore</a></p>
       </div>
     </section>
 
-    <!-- full-width CTA -->
-    <section class="cta-full">
-      <a href="/products">explore all products</a>
+    <!-- small iCup teaser -->
+    <section id="icup" class="icup">
+      <div class="wrap">
+        <h2>the icup</h2>
+        <div class="copy">
+          <p>Minimal, balanced, and unapologetically simple. The iCup makes every sip feel deliberate — no gimmicks, no wasted details. Just a quiet object that refuses to age badly.</p>
+        </div>
+      </div>
     </section>
+
+    <!-- full-width CTA to products -->
+    <a class="cta-full" href="products.html">explore all products</a>
   </main>
 
   <footer>
     <div class="wrap">© <span id="year"></span> Bernoulli and Friends Co.</div>
   </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="site.js"></script>
 </body>
 </html>
