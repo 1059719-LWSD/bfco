@@ -43,11 +43,11 @@ a{color:inherit}
 .nav svg{width:22px; height:22px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
 /* hero */
-.hero{
-  position:relative;
-  padding:8rem 0 4rem;
-  min-height:90vh;
-  background: #000 url('../img/oghomeimage.svg') center/cover no-repeat;
+.hero.home {
+  position: relative;
+  padding: 8rem 0 4rem;
+  min-height: 90vh;
+  background: #000 url("../img/oghomeimage.webp") center/cover no-repeat;
 }
 .hero .eyebrow{
   position:absolute; top:.85rem; right:1rem;
