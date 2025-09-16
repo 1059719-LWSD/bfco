@@ -6,7 +6,7 @@
   <meta name="google" content="notranslate" />
 
   <title>About Us — Bernoulli and Friends Co.</title>
-  <meta name="description" content="Learn about Bernoulli and Friends Co. — our mission, principles, and the small team building minimal, well-designed tools." />
+  <meta name="description" content="Learn about Bernoulli and Friends Co. — our mission, principles, and the small studio building minimal, well-designed tools." />
   <meta property="og:type" content="website">
   <meta property="og:title" content="About Us — Bernoulli and Friends Co.">
   <meta property="og:site_name" content="Bernoulli and Friends Co.">
@@ -18,29 +18,32 @@
 
   <style>
     :root{
-      --bg:#000;
-      --fg:#dfe6ee;
-      --muted:#a7b0bd;
-      --line:#1f242b;
-      --blue:#5aa7ff;
-      --card:#050607;
-      --radius:14px;
+      --bg:#000; --fg:#dfe6ee; --muted:#a7b0bd; --line:#1f242b; --blue:#5aa7ff;
+      --card:#050607; --radius:14px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-      font-weight:300;
-      letter-spacing:.01em;
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      font-weight:300; letter-spacing:.01em;
     }
+
+    /* shared top bar (matched to index) */
+    .bar{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.74);
+         backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
+    .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .brand{color:var(--fg); text-decoration:none; font-weight:400; letter-spacing:.02em; font-size:1.08rem}
+    .nav{display:flex; gap:1.2rem; align-items:center}
+    .nav a{display:flex; gap:.45rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.82; padding:.15rem 0}
+    .nav a:hover{opacity:1}
+    .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
+    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
 
     .wrap{width:min(1100px,92%); margin:0 auto}
     .section{padding:4.5rem 0}
-    .h1{font-weight:300; font-size:clamp(2rem, 1rem + 4vw, 3.2rem); margin:.25rem 0}
+    .h1{font-weight:300; font-size:clamp(2rem,1rem + 4vw,3.2rem); margin:.25rem 0}
     .h2{font-weight:300; font-size:1.65rem; text-transform:lowercase; margin:0 0 .75rem}
     .h3{font-weight:400; font-size:1.1rem; margin:.25rem 0}
     .lead{color:var(--muted); margin:.6rem 0 1.5rem}
@@ -48,172 +51,122 @@
     .link{color:var(--blue); text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    /* top bar (identical to index) */
-    .bar{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.74); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--line)}
-    .bar .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{color:var(--fg); text-decoration:none; font-weight:300; font-size:1.08rem; letter-spacing:.02em}
-    .nav{display:flex; gap:1.2rem; align-items:center}
-    .nav a{display:flex; gap:.45rem; align-items:center; text-transform:lowercase; text-decoration:none; opacity:.82; padding:.15rem 0}
-    .nav a:hover{opacity:1}
-    .nav .active{opacity:1; border-bottom:1px solid var(--fg)}
-    .nav svg{width:24px; height:24px; stroke:var(--fg); fill:none; stroke-width:1.25}
-
     /* hero */
     .hero{
-      position:relative;
-      padding:7.5rem 0 5rem;
-      min-height:58vh;
-      background:
-        radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.08), transparent 60%),
-        url("./img/ogaboutusimage.webp") center/cover no-repeat;
+      position:relative; min-height:58vh; padding:7.5rem 0 5rem;
+      background: radial-gradient(900px 420px at 50% -10%, rgba(90,167,255,.08), transparent 60%),
+                  url("./img/ogaboutusimage.webp") center/cover no-repeat;
     }
-    .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%);}
+    .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.7) 100%)}
     .hero .content{position:relative; z-index:1; text-align:center}
     .breadcrumbs{color:var(--muted); font-size:.95rem; margin-bottom:.4rem}
-    .breadcrumbs a{color:var(--muted)}
-    .breadcrumbs a:hover{color:var(--fg)}
+    .breadcrumbs a{color:var(--muted)} .breadcrumbs a:hover{color:var(--fg)}
     .pill{display:inline-flex; align-items:center; gap:.4rem; border:1px solid var(--line); border-radius:999px; padding:.25rem .6rem; color:var(--muted); font-size:.9rem}
 
-    /* varied layout */
-    .band{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1.25rem 1.25rem 1.05rem;
-    }
-    .band h2{margin-bottom:.4rem}
-    .band .lead{margin-top:.35rem}
+    /* mixed blocks (not all grid) */
+    .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem}
+    .stack{display:flex; flex-direction:column; gap:.6rem}
 
-    .principles{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; margin-top:1.2rem}
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:1.15rem}
-    .card .kicker{font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem}
-    .card .h3{margin-bottom:.25rem}
-
-    .callout{
-      margin-top:2.2rem;
-      border:1px dashed var(--line);
-      border-radius:var(--radius);
-      padding:1rem 1.2rem;
-      color:var(--muted);
-      text-align:center;
-    }
-
-    .grid-two{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem}
+    .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:1.2rem}
+    .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#0b0d10; padding:2.2rem 0; margin-top:.75rem}
+    .band .wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+    .band .msg{font-size:1.05rem; color:var(--muted)}
+    .band .pill{margin-left:auto}
 
     /* footer */
     footer{border-top:1px solid var(--line); padding:2rem 0; color:var(--muted); margin-top:2rem}
 
     @media (max-width:980px){
-      .principles{grid-template-columns:1fr 1fr}
-      .grid-two{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
     }
     @media (max-width:640px){
       .nav{display:none}
-      .principles{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-<!-- top bar -->
 <header class="bar">
   <div class="wrap inner">
     <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
     <nav class="nav" aria-label="primary">
       <a href="index.html#products" title="products">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-        <span>products</span>
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>products</span>
       </a>
       <a href="index.html#store" title="store">
-        <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg>
-        <span>store</span>
+        <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7Z"/><path d="M7 7V4h10v3"/></svg><span>store</span>
       </a>
       <a href="index.html#now" title="now">
-        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-        <span>now</span>
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>now</span>
       </a>
       <a class="active" href="aboutus.html" title="about us">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg>
-        <span>about us</span>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3"/></svg><span>about us</span>
       </a>
     </nav>
   </div>
 </header>
 
-  <!-- hero -->
-  <section class="hero">
-    <div class="veil"></div>
-    <div class="wrap content">
-      <div class="breadcrumbs">
-        <a href="index.html#home">home</a> · about us
-      </div>
-      <h1 class="h1">we design quietly.</h1>
-      <p class="lead">Bernoulli and Friends Co. is a small studio based in Sandwich, Massachusetts. We believe in instruments that keep quality, functionality, and minimal as a focus.</p>
-      <span class="pill">est. 2025</span>
-    </div>
-  </section>
+<section class="hero">
+  <div class="veil"></div>
+  <div class="wrap content">
+    <div class="breadcrumbs"><a href="index.html#home">home</a> · about us</div>
+    <h1 class="h1">we design quietly.</h1>
+    <p class="lead">Bernoulli and Friends Co. is a small studio based in Sandwich, Massachusetts. We believe in instruments that keep quality, functionality, and minimal as a focus.</p>
+    <span class="pill">est. 2025</span>
+  </div>
+</section>
 
-  <!-- mission (single band) -->
-  <section class="wrap section">
-    <div class="band">
+<!-- mixed content (less grid-y) -->
+<section class="wrap section">
+  <div class="grid-2">
+    <div class="panel">
       <h2 class="h2">mission</h2>
       <p class="lead">build simple instruments for everyday use — objects that feel inevitable, work reliably, and age gracefully.</p>
+      <div class="stack">
+        <div>• fewer features, better defaults</div>
+        <div>• considerate & high quality materials</div>
+        <div>• razor-sharp precision with every build</div>
+      </div>
     </div>
 
-    <!-- principles (3 cards) -->
-    <div class="principles">
-      <article class="card">
-        <div class="kicker">01</div>
-        <h3 class="h3">clarity</h3>
+    <div class="panel">
+      <h2 class="h2">principles</h2>
+      <div class="stack">
+        <div class="h3">01 — clarity</div>
         <p class="lead">items should explain themselves. the best manual is none at all.</p>
-      </article>
-      <article class="card">
-        <div class="kicker">02</div>
-        <h3 class="h3">calm</h3>
-        <p class="lead">color, motion and sound are used sparingly to reduce noise.</p>
-      </article>
-      <article class="card">
-        <div class="kicker">03</div>
-        <h3 class="h3">continuity</h3>
-        <p class="lead">our products are designed to last. we value stability over trends.</p>
-      </article>
-    </div>
-
-    <div class="callout">
-      We publish repair guides and small tools as they’re ready. Transparency beats hype.
-    </div>
-  </section>
-
-  <!-- contact / faq (split) -->
-  <section class="wrap section">
-    <div class="grid-two">
-      <div class="card">
-        <h2 class="h2">contact</h2>
-        <p class="lead">questions, press or collaborations — we’d love to hear from you.</p>
-        <p>Email: <a class="link" href="mailto:stuff@bernoulli.friends">stuff@bernoulli.friends</a></p>
-      </div>
-      <div class="card">
-        <h2 class="h2">faq</h2>
-        <div class="stack">
-          <div class="h3">shipping</div>
-          <p class="lead">we ship globally from our main warehouse in Sandwich, Massachusetts.</p>
-          <div class="h3">returns</div>
-          <p class="lead">returns are accepted within 30 days in original condition.</p>
-          <div class="h3">support</div>
-          <p class="lead">shoot us an email at <a class="link" href="mailto:support@bernoulli.friends">support@bernoulli.friends</a></p>
-        </div>
+        <div class="h3">02 — calm</div>
+        <p class="lead">color and feel and sound are emphasized sparingly for a tranquil experience.</p>
+        <div class="h3">03 — continuity</div>
+        <p class="lead">our products are designed to last.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="wrap">
-      © <span id="year"></span> Bernoulli and Friends Co.
+<section class="band">
+  <div class="wrap">
+    <div class="msg">Questions, press, or collaborations — we’d love to hear from you.</div>
+    <a class="pill" href="mailto:stuff@bernoulli.friends">contact: stuff@bernoulli.friends</a>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="grid-2">
+    <div class="panel">
+      <h2 class="h2">shipping & returns</h2>
+      <p class="lead">we ship globally from our main warehouse in Sandwich, Massachusetts. returns are accepted within 30 days in original condition.</p>
     </div>
-  </footer>
+    <div class="panel">
+      <h2 class="h2">support</h2>
+      <p class="lead">need help? email <a class="link" href="mailto:support@bernoulli.friends">support@bernoulli.friends</a>. we keep responses short, polite, and useful.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<footer>
+  <div class="wrap">© <span id="year"></span> Bernoulli and Friends Co.</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
