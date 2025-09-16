@@ -9,46 +9,35 @@
   <link rel="stylesheet" href="./css/site.css" />
 </head>
 <body>
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand" href="index.html">Bernoulli and Friends Co.</a>
+    <nav class="nav" aria-label="primary">
+      <a href="products.html"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg><span>products</span></a>
+      <a href="store.html"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1.5 13H7.5L6 7z"/><path d="M9 7V5a3 3 0 1 1 6 0v2"/></svg><span>store</span></a>
+      <a href="press.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>press</span></a>
+      <a href="aboutus.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 6v2M12 14v4"/></svg><span>about us</span></a>
+    </nav>
+  </div>
+</header>
 
-  <!-- top bar -->
-  <header class="bar">
-    <div class="wrap inner">
-      <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
-      <nav class="nav" aria-label="primary">
-        <a href="products.html" title="products">products</a>
-        <a href="store.html" title="store">store</a>
-        <a href="press.html" title="press">press</a>
-        <a href="aboutus.html" title="about us">about us</a>
-      </nav>
+<main>
+  <section class="wrap section">
+    <h1 class="h1">all products</h1>
+    <div class="products-grid" style="margin-top:1.2rem">
+      <article class="product-card">
+        <a href="icup-info.html" aria-label="icup overview">
+          <img src="./img/icup-charcoal.webp" alt="icup in charcoal" />
+          <div class="meta"><span>icup</span><span class="badge">new</span></div>
+        </a>
+      </article>
     </div>
-  </header>
+  </section>
+</main>
 
-  <main>
-    <section class="wrap section">
-      <h1 class="h1">all products</h1>
-      <div class="products-grid" style="margin-top:1.2rem">
-        <article class="product-card">
-          <a href="icup.html" aria-label="icup product page">
-            <img src="./img/icup-charcoal.webp" alt="icup in charcoal" />
-            <div class="meta">
-              <span>icup</span>
-              <span class="badge">new</span>
-            </div>
-          </a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © <span id="year"></span> Bernoulli and Friends Co.
-    </div>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="./js/site.js"></script>
-
+<footer>
+  <div class="wrap">© <span id="year"></span> Bernoulli and Friends Co.</div>
+</footer>
+<script src="./js/site.js"></script>
 </body>
 </html>

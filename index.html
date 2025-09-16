@@ -10,50 +10,49 @@
   <link rel="preload" as="image" href="./img/oghomeimage.webp" />
 </head>
 <body>
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
+    <nav class="nav" aria-label="primary">
+      <a href="products.html" title="products">
+        <!-- apps -->
+        <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+        <span>products</span>
+      </a>
+      <a href="store.html" title="store">
+        <!-- bag -->
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1.5 13H7.5L6 7z"/><path d="M9 7V5a3 3 0 1 1 6 0v2"/></svg>
+        <span>store</span>
+      </a>
+      <a href="press.html" title="press">
+        <!-- square -->
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+        <span>press</span>
+      </a>
+      <a href="aboutus.html" title="about us">
+        <!-- info -->
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 6v2M12 14v4"/></svg>
+        <span>about us</span>
+      </a>
+    </nav>
+  </div>
+</header>
 
-  <!-- top bar -->
-  <header class="bar">
-    <div class="wrap inner">
-      <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
-      <nav class="nav" aria-label="primary">
-        <a href="products.html" title="products">products</a>
-        <a href="store.html" title="store">store</a>
-        <a href="press.html" title="press">press</a>
-        <a href="aboutus.html" title="about us">about us</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero home">
-      <p class="eyebrow">2025 september</p>
-      <div class="wrap">
-        <h1 class="h1">the og<span style="font-size:.6em;opacity:.6">™</span> icup.</h1>
-        <p class="lead"><a class="link" href="icup.html">explore</a></p>
-      </div>
-    </section>
-
-    <section id="icup" class="icup">
-      <div class="wrap">
-        <h2>the icup</h2>
-        <div class="copy">
-          <p>Minimal, balanced, and unapologetically simple. The icup makes every sip feel deliberate — no gimmicks, no wasted details. Just a quiet object that refuses to age badly.</p>
-        </div>
-      </div>
-    </section>
-
-    <a class="cta" href="products.html">explore all products</a>
-  </main>
-
-  <footer>
+<main id="home">
+  <section class="hero">
+    <p class="eyebrow">2025 september</p>
     <div class="wrap">
-      © <span id="year"></span> Bernoulli and Friends Co.
+      <h1 class="h1">the og<span style="font-size:.6em;opacity:.6">™</span> icup.</h1>
+      <p class="lead"><a class="link" href="icup.html">explore</a></p>
     </div>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="./js/site.js"></script>
+  </section>
 
+  <a class="cta" href="products.html">explore all products</a>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Bernoulli and Friends Co.</div>
+</footer>
+<script src="./js/site.js"></script>
 </body>
 </html>

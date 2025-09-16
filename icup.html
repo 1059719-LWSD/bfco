@@ -4,84 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=yes" />
   <meta name="google" content="notranslate" />
-  <title>icup — Bernoulli and Friends Co.</title>
-  <meta name="description" content="icup product details, colors, pricing and specs." />
+  <title>iCup — Bernoulli and Friends Co.</title>
+  <meta name="description" content="iCup product details and purchase." />
   <link rel="stylesheet" href="./css/site.css" />
 </head>
 <body>
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand" href="index.html">Bernoulli and Friends Co.</a>
+    <nav class="nav" aria-label="primary">
+      <a href="products.html"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg><span>products</span></a>
+      <a href="store.html"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1.5 13H7.5L6 7z"/><path d="M9 7V5a3 3 0 1 1 6 0v2"/></svg><span>store</span></a>
+      <a href="press.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>press</span></a>
+      <a href="aboutus.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 6v2M12 14v4"/></svg><span>about us</span></a>
+    </nav>
+  </div>
+</header>
 
-  <!-- top bar -->
-  <header class="bar">
-    <div class="wrap inner">
-      <a class="brand" href="index.html" aria-label="Bernoulli and Friends Co.">Bernoulli and Friends Co.</a>
-      <nav class="nav" aria-label="primary">
-        <a href="products.html" title="products">products</a>
-        <a href="store.html" title="store">store</a>
-        <a href="press.html" title="press">press</a>
-        <a href="aboutus.html" title="about us">about us</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="product">
-    <section class="wrap shell">
-      <div class="gallery">
-        <div class="gallery-main">
-          <img data-gallery-main src="./img/icup-charcoal.webp" alt="icup preview" />
-        </div>
-        <div class="gallery-thumbs">
-          <button type="button" data-gallery-thumb data-src="./img/icup-charcoal.webp" aria-label="charcoal">
-            <img src="./img/icup-charcoal.webp" alt="charcoal thumb" />
-          </button>
-          <button type="button" data-gallery-thumb data-src="./img/icup-vesuvius.webp" aria-label="vesuvius">
-            <img src="./img/icup-vesuvius.webp" alt="vesuvius thumb" />
-          </button>
-          <button type="button" data-gallery-thumb data-src="./img/icup-yuzu.webp" aria-label="yuzu">
-            <img src="./img/icup-yuzu.webp" alt="yuzu thumb" />
-          </button>
-        </div>
+<main class="wrap section" style="display:grid; grid-template-columns:1.1fr .9fr; gap:1.2rem;">
+  <div>
+    <div class="gallery">
+      <div class="gallery-main">
+        <img data-gallery-main src="./img/icup-charcoal.webp" alt="icup preview" />
       </div>
-
-
-      <aside class="buy">
-        <h1 class="h1">icup</h1>
-        <div class="price">price: <strong data-price>$249</strong></div>
-
-        <div class="select">
-          <label for="color">color</label>
-          <select id="color" name="color">
-            <option value="charcoal">charcoal — $249</option>
-            <option value="vesuvius">vesuvius — $249</option>
-            <option value="yuzu">yuzu — $349</option>
-          </select>
-        </div>
-
-        <button class="btn" aria-disabled="true">out of stock</button>
-        <p class="teaser">sign up for stock alerts — <a class="link" href="press.html">press</a> will have the first announcement.</p>
-
-        <div class="specs">
-          <h3>specifications</h3>
-          <ul>
-            <li>materials: stainless steel</li>
-            <li>capacity: 300 ml</li>
-            <li>finish: powder-coated for charcoal, brushed for vesuvius, polished paint for yuzu</li>
-            <li>care: dishwasher safe</li>
-            <li>dimensions: Ø 87 mm × 95 mm tall</li>
-          </ul>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © <span id="year"></span> Bernoulli and Friends Co.
+      <div class="gallery-thumbs">
+        <button type="button" data-gallery-thumb data-src="./img/icup-charcoal.webp" aria-label="charcoal">
+          <img src="./img/icup-charcoal.webp" alt="charcoal thumb" />
+        </button>
+        <button type="button" data-gallery-thumb data-src="./img/icup-vesuvius.webp" aria-label="vesuvius">
+          <img src="./img/icup-vesuvius.webp" alt="vesuvius thumb" />
+        </button>
+        <button type="button" data-gallery-thumb data-src="./img/icup-yuzu.webp" aria-label="yuzu">
+          <img src="./img/icup-yuzu.webp" alt="yuzu thumb" />
+        </button>
+      </div>
     </div>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="./js/site.js"></script>
+  </div>
 
+  <aside class="buy-panel">
+    <h1 class="h1" style="margin-top:0">icup</h1>
+    <div class="price">price: <span data-price>$249</span></div>
+
+    <label for="variant" class="h2" style="font-size:1rem; opacity:.9">color</label>
+    <select id="variant" data-variant-select>
+      <option value="charcoal">charcoal — $249</option>
+      <option value="vesuvius">vesuvius — $249</option>
+      <option value="yuzu">yuzu — $349</option>
+    </select>
+
+    <button class="btn" aria-disabled="true">out of stock</button>
+
+    <p class="lead" style="margin-top:.25rem">sign up for stock alerts — <a href="press.html" class="link">press</a> will have the first announcement.</p>
+
+    <hr style="border:none; border-top:1px solid var(--line); margin:1rem 0 1.2rem" />
+
+    <h2 class="h2">specifications</h2>
+    <ul class="lead" style="text-align:left; line-height:1.65">
+      <li>materials: stainless steel</li>
+      <li>capacity: 300 ml</li>
+      <li>finish: powder-coated for charcoal, brushed for vesuvius, polished paint for yuzu</li>
+      <li>care: dishwasher safe</li>
+      <li>dimensions: Ø 87 mm × 95 mm tall</li>
+    </ul>
+  </aside>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Bernoulli and Friends Co.</div>
+</footer>
+<script src="./js/site.js"></script>
 </body>
 </html>
